@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-10T05:06:24.118Z",
+    "end": "2025-11-10T05:06:28.723Z",
+    "duration": 4605,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c7a8d50a-68bd-4d04-b52f-9d1f6ef8607b",
+      "title": "",
+      "fullFile": "e2e-tests\\cart.spec.js",
+      "file": "e2e-tests\\cart.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9550f34-2596-441a-85d3-af91892de60c",
+          "title": "Carrito SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agregar producto al carrito",
+              "fullTitle": "Carrito SauceDemo Agregar producto al carrito",
+              "timedOut": null,
+              "duration": 2805,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.inventory_item').first().contains('Add to cart').click();\ncy.get('.shopping_cart_badge').should('contain', '1');",
+              "err": {},
+              "uuid": "a0f20f48-e521-4508-ad04-08dfff87b48c",
+              "parentUUID": "d9550f34-2596-441a-85d3-af91892de60c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a0f20f48-e521-4508-ad04-08dfff87b48c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2805,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

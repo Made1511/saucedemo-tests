@@ -1,0 +1,30 @@
+name: CI SauceDemo
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar pruebas E2E
+        run: npm run test:e2e
+
+      - name: Ejecutar pruebas API con reporte
+        run: npm run test:api:report
+
+      - name: Generar reporte E2E
+        run: npm run generate-report
+
+      - name: Subir artefactos de reportes
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: |
+            reports/test-report.html
+            reports/api-report.html

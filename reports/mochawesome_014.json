@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-10T19:17:16.461Z",
+    "end": "2025-11-10T19:17:19.846Z",
+    "duration": 3385,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dfa8ba6d-590f-46ac-9b99-af31547448c7",
+      "title": "",
+      "fullFile": "e2e-tests\\login.spec.js",
+      "file": "e2e-tests\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+          "title": "Login SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login válido",
+              "fullTitle": "Login SauceDemo Login válido",
+              "timedOut": null,
+              "duration": 1173,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce');\ncy.get('#login-button').click();\n// Validación adicional: URL correcta\ncy.url().should('include', '/inventory.html');\n// Validación adicional: título visible\ncy.contains('Products').should('be.visible');\n// Validación adicional: productos cargados\ncy.get('.inventory_item').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "5f599fc9-d4dd-4c83-b073-d1bd2021ebea",
+              "parentUUID": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login inválido",
+              "fullTitle": "Login SauceDemo Login inválido",
+              "timedOut": null,
+              "duration": 955,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('invalid_user');\ncy.get('#password').type('wrong_password');\ncy.get('#login-button').click();\n// Validación adicional: mensaje de error\ncy.get('[data-test=\"error\"]').should('be.visible');\ncy.get('[data-test=\"error\"]').should('contain.text', 'Epic sadface');",
+              "err": {},
+              "uuid": "66919a92-f597-4a1f-8ad9-38bf92ffca15",
+              "parentUUID": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5f599fc9-d4dd-4c83-b073-d1bd2021ebea",
+            "66919a92-f597-4a1f-8ad9-38bf92ffca15"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2128,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

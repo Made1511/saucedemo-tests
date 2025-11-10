@@ -1,0 +1,23 @@
+{
+  "name": "saucedemo-tests",
+  "version": "1.0.0",
+  "description": "Este repositorio contiene pruebas automatizadas E2E y de API para validar el flujo de compra de [SauceDemo](https://www.saucedemo.com).",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "test:e2e": "npx cypress run --spec \"e2e-tests/*.spec.js\"",
+    "test:api": "newman run api-tests/saucedemo.postman_collection.json",
+   "test:api:report": "newman run api-tests/saucedemo.postman_collection.json --reporters cli,html --reporter-html-export reports/api-report.html",
+"generate-report": "npx mochawesome-merge reports/*.json > reports/merged.json && npx marge reports/merged.json --reportDir reports --reportFilename test-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^15.6.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome": "^7.1.4",
+    "newman": "^4.6.1",
+    "newman-reporter-html": "^1.0.5"
+  }
+}
