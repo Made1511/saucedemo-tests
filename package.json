@@ -7,8 +7,8 @@
     "test": "npx cypress run",
     "test:e2e": "npx cypress run --spec \"e2e-tests/*.spec.js\"",
     "test:api": "newman run api-tests/saucedemo.postman_collection.json",
-   "test:api:report": "newman run api-tests/saucedemo.postman_collection.json --reporters cli,html --reporter-html-export reports/api-report.html",
-"generate-report": "npx mochawesome-merge reports/*.json > reports/merged.json && npx marge reports/merged.json --reportDir reports --reportFilename test-report"
+    "test:api:report": "newman run api-tests/saucedemo.postman_collection.json --reporters cli,html --reporter-html-export reports/api-report.html",
+    "generate-report": "npx mochawesome-merge reports/mochawesome_*.json > reports/merged.json && npx mochawesome-report-generator reports/merged.json --reportDir reports --reportFilename test-report"
   },
   "keywords": [],
   "author": "",

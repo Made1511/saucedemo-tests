@@ -1,0 +1,317 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-11-10T19:17:16.461Z",
+    "end": "2025-11-10T21:13:01.025Z",
+    "duration": 6944564
+  },
+  "results": [
+    {
+      "uuid": "5c859d1c-f27b-478f-8ed0-cef2c7115ff7",
+      "title": "",
+      "fullFile": "e2e-tests\\cart.spec.js",
+      "file": "e2e-tests\\cart.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3fff4e33-3307-4705-a5c0-8c87d690a32f",
+          "title": "Carrito SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Agregar producto al carrito",
+              "fullTitle": "Carrito SauceDemo Agregar producto al carrito",
+              "timedOut": null,
+              "duration": 2286,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.inventory_item').first().contains('Add to cart').click();\ncy.get('.shopping_cart_badge').should('contain', '1');",
+              "err": {},
+              "uuid": "297acbcc-b6fc-4be4-8fcf-a828a0a6f7cd",
+              "parentUUID": "3fff4e33-3307-4705-a5c0-8c87d690a32f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "297acbcc-b6fc-4be4-8fcf-a828a0a6f7cd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2286,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "962f6941-0265-435a-8828-5f4b2fbc36b0",
+      "title": "",
+      "fullFile": "e2e-tests\\checkout.spec.js",
+      "file": "e2e-tests\\checkout.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8bce3bbe-61e8-4d55-a613-556c4a9d8693",
+          "title": "Checkout SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Completar compra",
+              "fullTitle": "Checkout SauceDemo Completar compra",
+              "timedOut": null,
+              "duration": 2283,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#first-name').type('Madelin');\ncy.get('#last-name').type('QA');\ncy.get('#postal-code').type('15000');\ncy.get('#continue').click();\ncy.get('#finish').click();\ncy.contains('Thank you for your order!').should('be.visible');",
+              "err": {},
+              "uuid": "6d082086-029c-4b23-8f27-e2df38624b72",
+              "parentUUID": "8bce3bbe-61e8-4d55-a613-556c4a9d8693",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6d082086-029c-4b23-8f27-e2df38624b72"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2283,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "95d4faf2-0d67-41a9-bf46-efdd00cf05f6",
+      "title": "",
+      "fullFile": "e2e-tests\\login.spec.js",
+      "file": "e2e-tests\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "94b409c2-2e51-4df4-a098-f70118ff5647",
+          "title": "Login SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login válido",
+              "fullTitle": "Login SauceDemo Login válido",
+              "timedOut": null,
+              "duration": 1232,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce');\ncy.get('#login-button').click();\n// Validación adicional: URL correcta\ncy.url().should('include', '/inventory.html');\n// Validación adicional: título visible\ncy.contains('Products').should('be.visible');\n// Validación adicional: productos cargados\ncy.get('.inventory_item').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "9a6a68e9-cadd-498d-aa7a-9d3416b3a59c",
+              "parentUUID": "94b409c2-2e51-4df4-a098-f70118ff5647",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login inválido",
+              "fullTitle": "Login SauceDemo Login inválido",
+              "timedOut": null,
+              "duration": 883,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('invalid_user');\ncy.get('#password').type('wrong_password');\ncy.get('#login-button').click();\n// Validación adicional: mensaje de error\ncy.get('[data-test=\"error\"]').should('be.visible');\ncy.get('[data-test=\"error\"]').should('contain.text', 'Epic sadface');",
+              "err": {},
+              "uuid": "b3a41808-4f51-4894-bf89-08c6a5e280a7",
+              "parentUUID": "94b409c2-2e51-4df4-a098-f70118ff5647",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9a6a68e9-cadd-498d-aa7a-9d3416b3a59c",
+            "b3a41808-4f51-4894-bf89-08c6a5e280a7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2115,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "dfa8ba6d-590f-46ac-9b99-af31547448c7",
+      "title": "",
+      "fullFile": "e2e-tests\\login.spec.js",
+      "file": "e2e-tests\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+          "title": "Login SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login válido",
+              "fullTitle": "Login SauceDemo Login válido",
+              "timedOut": null,
+              "duration": 1173,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce');\ncy.get('#login-button').click();\n// Validación adicional: URL correcta\ncy.url().should('include', '/inventory.html');\n// Validación adicional: título visible\ncy.contains('Products').should('be.visible');\n// Validación adicional: productos cargados\ncy.get('.inventory_item').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "5f599fc9-d4dd-4c83-b073-d1bd2021ebea",
+              "parentUUID": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login inválido",
+              "fullTitle": "Login SauceDemo Login inválido",
+              "timedOut": null,
+              "duration": 955,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\ncy.get('#user-name').type('invalid_user');\ncy.get('#password').type('wrong_password');\ncy.get('#login-button').click();\n// Validación adicional: mensaje de error\ncy.get('[data-test=\"error\"]').should('be.visible');\ncy.get('[data-test=\"error\"]').should('contain.text', 'Epic sadface');",
+              "err": {},
+              "uuid": "66919a92-f597-4a1f-8ad9-38bf92ffca15",
+              "parentUUID": "567d0589-82cf-4879-a78e-86e1e1cbce87",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5f599fc9-d4dd-4c83-b073-d1bd2021ebea",
+            "66919a92-f597-4a1f-8ad9-38bf92ffca15"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2128,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -18,6 +18,9 @@ jobs:
       - name: Ejecutar pruebas API con reporte
         run: npm run test:api:report
 
+      - name: Eliminar merged.json previo
+        run: rm -f reports/merged.json
+
       - name: Generar reporte E2E
         run: npm run generate-report
 
