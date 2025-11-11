@@ -9,6 +9,11 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
       - name: Instalar dependencias
         run: npm install
 
@@ -21,8 +26,17 @@ jobs:
       - name: Eliminar merged.json previo
         run: rm -f reports/merged.json
 
+      - name: Validar existencia de archivos JSON
+        run: |
+          ls reports/mochawesome_*.json || (echo "No se encontraron archivos JSON para merge" && exit 1)
+
+      - name: Instalar mochawesome tools
+        run: npm install -g mochawesome-merge mochawesome-report-generator
+
       - name: Generar reporte E2E
-        run: npm run generate-report
+        run: |
+          mochawesome-merge reports/mochawesome_*.json > reports/merged.json
+          mochawesome-report-generator reports/merged.json --reportDir reports --reportFilename test-report
 
       - name: Verificar archivos generados
         run: ls -l reports/
