@@ -30,8 +30,15 @@ jobs:
         run: |
           ls reports/mochawesome_*.json || (echo "No se encontraron archivos JSON para merge" && exit 1)
 
-      - name: Generar reporte E2E
-        run: npm run generate-report
+      - name: Generar reporte E2E (binarios locales)
+        run: |
+          ./node_modules/.bin/mochawesome-merge reports/mochawesome_*.json > reports/merged.json
+          ./node_modules/.bin/mochawesome-report-generator reports/merged.json --reportDir reports --reportFilename test-report
+
+      - name: Verificar binarios locales
+        run: |
+          ls -l node_modules/.bin/mochawesome-merge
+          ls -l node_modules/.bin/mochawesome-report-generator
 
       - name: Verificar archivos generados
         run: ls -l reports/
