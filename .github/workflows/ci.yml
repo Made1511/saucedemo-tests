@@ -17,8 +17,15 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Instalar Cypress
+        run: npx cypress install
+      - name: Validar instalación de Cypress
+        run: |
+              ls -l ./node_modules/.bin/cypress || (echo "❌ Cypress no está instalado correctamente" && exit 1)
+              ./node_modules/.bin/cypress verify || (echo "❌ Cypress no pasó la verificación" && exit 1)
+
       - name: Ejecutar pruebas E2E
-        run: npm run test:e2e
+        run: ./node_modules/.bin/cypress run --spec "e2e-tests/*.spec.js"
 
       - name: Ejecutar pruebas API con reporte
         run: npm run test:api:report
@@ -42,6 +49,10 @@ jobs:
         run: |
           test -f reports/test-report.html || (echo "Falta test-report.html" && exit 1)
           test -f reports/api-report.html || (echo "Falta api-report.html" && exit 1)
+      - name: Validar archivo cypress.config.js
+        run: |
+          test -f cypress.config.js || (echo "Falta cypress.config.js" && exit 1)
+          node -e "require('./cypress.config.js')" || (echo "Error de sintaxis en cypress.config.js" && exit 1)
 
       - name: Verificar binarios locales
         run: |
