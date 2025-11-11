@@ -30,13 +30,6 @@ jobs:
         run: |
           ls reports/mochawesome_*.json || (echo "No se encontraron archivos JSON para merge" && exit 1)
 
-      - name: Instalar mochawesome tools
-        run: npm install -g mochawesome-merge mochawesome-report-generator
-      - name: Verificar comandos disponibles
-        run: |
-          which mochawesome-merge || echo "mochawesome-merge no está disponible"
-          which mochawesome-report-generator || echo "mochawesome-report-generator no está disponible"
-
       - name: Generar reporte E2E
         run: npm run generate-report
 
